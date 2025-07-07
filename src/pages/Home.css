@@ -1,0 +1,39 @@
+.home-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: linear-gradient(to right, #eef2f3, #dbe9f4);
+  text-align: center;
+}
+
+.home-content {
+  max-width: 600px;
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #4b5563;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.home-btn:hover {
+  background-color: #1d4ed8;
+}
