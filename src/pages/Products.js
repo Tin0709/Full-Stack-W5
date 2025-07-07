@@ -1,20 +1,29 @@
 import React from "react";
-import { Link, Routes, Route } from "react-router-dom";
+import { NavLink, Routes, Route, useParams } from "react-router-dom";
 import { getProducts, getProductById } from "../data/productService";
-import { useParams } from "react-router-dom";
+import "./Products.css";
 
 function ProductDetails({ id }) {
   const product = getProductById(id);
   if (!product) return <div>Product not found.</div>;
 
   return (
-    <div className="product-details">
+    <div className="product-detail-panel">
       <h3>{product.name}</h3>
       <p>{product.description}</p>
-      <p>Price: ${product.price}</p>
-      <p>Weight: {product.weight}kg</p>
+      <p>
+        <strong>Price:</strong> ${product.price}
+      </p>
+      <p>
+        <strong>Weight:</strong> {product.weight}kg
+      </p>
     </div>
   );
+}
+
+function ProductDetailWrapper() {
+  const { productId } = useParams();
+  return <ProductDetails id={parseInt(productId)} />;
 }
 
 export default function Products() {
@@ -24,22 +33,24 @@ export default function Products() {
     <div className="products-page">
       <div className="product-list">
         {products.map((p) => (
-          <Link key={p.id} to={p.id.toString()}>
+          <NavLink
+            key={p.id}
+            to={p.id.toString()}
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             {p.name}
-          </Link>
+          </NavLink>
         ))}
       </div>
       <div className="product-detail-panel">
         <Routes>
           <Route path=":productId" element={<ProductDetailWrapper />} />
-          <Route path="*" element={<p>Select a product to view details.</p>} />
+          <Route
+            path="*"
+            element={<p>Please select a product from the list.</p>}
+          />
         </Routes>
       </div>
     </div>
   );
-}
-
-function ProductDetailWrapper() {
-  const { productId } = useParams();
-  return <ProductDetails id={parseInt(productId)} />;
 }
