@@ -5,17 +5,19 @@ import "./Products.css";
 
 function ProductDetails({ id }) {
   const product = getProductById(id);
-  if (!product) return <div>Product not found.</div>;
+  if (!product)
+    return <div className="product-detail-panel">Product not found.</div>;
 
   return (
     <div className="product-detail-panel">
+      <img src={product.image} alt={product.name} className="product-image" />
       <h3>{product.name}</h3>
       <p>{product.description}</p>
       <p>
-        <strong>Price:</strong> ${product.price}
+        💰 <strong>Price:</strong> ${product.price}
       </p>
       <p>
-        <strong>Weight:</strong> {product.weight}kg
+        ⚖️ <strong>Weight:</strong> {product.weight}kg
       </p>
     </div>
   );
@@ -33,11 +35,7 @@ export default function Products() {
     <div className="products-page">
       <div className="product-list">
         {products.map((p) => (
-          <NavLink
-            key={p.id}
-            to={p.id.toString()}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
+          <NavLink key={p.id} to={`/products/${p.id}`}>
             {p.name}
           </NavLink>
         ))}
@@ -47,7 +45,11 @@ export default function Products() {
           <Route path=":productId" element={<ProductDetailWrapper />} />
           <Route
             path="*"
-            element={<p>Please select a product from the list.</p>}
+            element={
+              <p className="placeholder-msg">
+                Please select a product from the list.
+              </p>
+            }
           />
         </Routes>
       </div>
