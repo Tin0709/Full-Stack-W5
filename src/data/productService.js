@@ -6,7 +6,8 @@ const products = [
       "High-performance laptop with long battery life and sleek design.",
     price: 1200,
     weight: 2.5,
-    image: "https://via.placeholder.com/300x200?text=Laptop",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxfuAFX0nY82Jv5B61R0XEDe3C6ANGHjhEQ&s",
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ const products = [
       "Latest smartphone with OLED display and triple camera system.",
     price: 800,
     weight: 0.5,
-    image: "https://via.placeholder.com/300x200?text=Smartphone",
+    image:
+      "https://cdn.thewirecutter.com/wp-content/media/2024/09/iphone-2048px-6979.jpg?auto=webp&quality=75&width=1024",
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ const products = [
       "Wireless noise-cancelling headphones with high-fidelity sound.",
     price: 200,
     weight: 0.3,
-    image: "https://via.placeholder.com/300x200?text=Headphones",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXlDa9GUDqS6_IJntzoWN1LpU-QH630GsLNQ&s",
   },
 ];
 

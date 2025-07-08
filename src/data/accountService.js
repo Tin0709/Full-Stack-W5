@@ -1,7 +1,7 @@
 let account = {
-  firstName: "John",
-  lastName: "Doe",
-  address: "123 Main St, Springfield",
+  firstName: "Tin",
+  lastName: "Nguyen",
+  address: "123 Main St, Abcd",
 };
 
 export function getAccountData() {
